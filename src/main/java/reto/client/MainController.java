@@ -12,7 +12,7 @@ public class MainController {
     private Button btnConnect;
 
     @FXML
-    private Button btnConnect1;
+    private Button btnSendMsg;
 
     @FXML
     private CheckBox chkPrivateMessage;

@@ -56,7 +56,7 @@
                   <Label text="Para:" />
                   <TextField fx:id="txtPrivateMessageUsername" maxWidth="-Infinity" minWidth="-Infinity" prefWidth="85.0" promptText="Admin" />
                   <TextField fx:id="txtMessage" maxWidth="1.7976931348623157E308" minWidth="120.0" prefWidth="256.0" promptText="Mensaje" />
-                  <Button fx:id="btnConnect1" mnemonicParsing="false" text="Enviar Mensaje" />
+                  <Button fx:id="btnSendMsg" mnemonicParsing="false" text="Enviar Mensaje" />
                </children>
             </HBox>
          </children>
