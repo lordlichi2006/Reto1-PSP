@@ -1,23 +1,30 @@
 package reto.model;
 
 public class Message {
+    private Type type;
     private String messageContents;
     private String recipientName;
     private String messengerName;
-    private boolean isPrivate;
 
-    public Message(String messageContents, String recipientName, boolean isPrivate, String messengerName) {
+    public Message(Type type, String messageContents, String recipientName, String messengerName) {
+        this.type = type;
         this.messageContents = messageContents;
         this.recipientName = recipientName;
-        this.isPrivate = isPrivate;
         this.messengerName = messengerName;
     }
 
-    public Message(String messageContents, String messengerName) {
+    public Message(Type type, String messageContents, String messengerName) {
+        this.type = type;
         this.messageContents = messageContents;
         this.messengerName = messengerName;
-        this.isPrivate = false;
-        this.recipientName = null;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public String getMessageContents() {
@@ -36,14 +43,6 @@ public class Message {
         this.recipientName = recipientName;
     }
 
-    public boolean isPrivate() {
-        return isPrivate;
-    }
-
-    public void setPrivate(boolean isPrivate) {
-        this.isPrivate = isPrivate;
-    }
-
     public String getMessengerName() {
         return messengerName;
     }
@@ -54,13 +53,17 @@ public class Message {
 
     @Override
     public String toString() {
-        if (isPrivate) {
-            return "[Private] | " + messengerName + " says: " + messageContents;
+        switch (type) {
+            case PRIVATE:
+                return "[Private] | " + messengerName + " says: " + messageContents;
+            case PUBLIC:
+                if (!recipientName.equals("")) {
+                    return messengerName + " mentions @" + recipientName + ": " + messageContents;
+                }
+                return messengerName + " says: " + messageContents;
+            default:
+                return "<<"+messageContents+">>";
         }
-        if (!recipientName.equals("")) {
-            return messengerName + " mentions @" + recipientName + ": " + messageContents;
-        }
-        return messengerName + " says: " + messageContents;
     }
 
 }
