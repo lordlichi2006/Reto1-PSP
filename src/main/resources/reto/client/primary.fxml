@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="360.0" minWidth="640.0" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reto.PrimaryController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="360.0" minWidth="640.0" prefHeight="540.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="reto.client.MainController">
 
          <top>
             <HBox alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" prefWidth="200.0" spacing="10.0" BorderPane.alignment="CENTER">

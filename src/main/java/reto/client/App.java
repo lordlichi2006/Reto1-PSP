@@ -1,4 +1,4 @@
-package reto;
+package reto.client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
