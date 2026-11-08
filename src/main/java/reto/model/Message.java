@@ -68,14 +68,14 @@ public class Message implements Serializable {
     public String toString() {
         switch (type) {
             case PRIVATE:
-                return "[Private] | " + messengerName + " -> " + recipientName + ": " + messageContents;
+                return "[Privado] @" + messengerName + " para @" + recipientName + ": " + messageContents;
             case PUBLIC:
                 if (recipientName != null && !recipientName.isEmpty()) {
-                    return messengerName + " mentions @" + recipientName + ": " + messageContents;
+                    return messengerName + " menciona a @" + recipientName + ": " + messageContents;
                 }
-                return messengerName + " says: " + messageContents;
+                return messengerName + " dice: " + messageContents;
             default:
-                return "<<" + messageContents + ">>";
+                return "[" + messageContents + "]";
         }
     }
 
