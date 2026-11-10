@@ -1,6 +1,15 @@
 package reto.model;
 
-public class Message {
+import java.io.Serializable;
+
+/**
+ * Único objeto que viaja entre cliente y servidor (writeObject / readObject).
+ * Tiene que ser Serializable y la clase tiene que ser idéntica en los dos lados.
+ */
+public class Message implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     private Type type;
     private String messageContents;
     private String recipientName;
@@ -51,18 +60,22 @@ public class Message {
         this.messengerName = messengerName;
     }
 
+    public boolean isPrivate() {
+        return type == Type.PRIVATE;
+    }
+
     @Override
     public String toString() {
         switch (type) {
             case PRIVATE:
-                return "[Private] | " + messengerName + " says: " + messageContents;
+                return "[Private] | " + messengerName + " -> " + recipientName + ": " + messageContents;
             case PUBLIC:
-                if (!recipientName.equals("")) {
+                if (recipientName != null && !recipientName.isEmpty()) {
                     return messengerName + " mentions @" + recipientName + ": " + messageContents;
                 }
                 return messengerName + " says: " + messageContents;
             default:
-                return "<<"+messageContents+">>";
+                return "<<" + messageContents + ">>";
         }
     }
 
