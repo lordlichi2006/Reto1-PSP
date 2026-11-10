@@ -9,26 +9,21 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * JavaFX App (cliente del chat)
  */
 public class App extends Application {
 
-    private static Scene scene; 
-
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 640, 360);
-        stage.setScene(scene);
+        FXMLLoader loader = new FXMLLoader(App.class.getResource("primary.fxml"));
+        Parent root = loader.load();
+        MainController controller = loader.getController();
+
+        stage.setTitle("Chat PSP");
+        stage.setScene(new Scene(root, 960, 540));
+        // Si se cierra la ventana estando conectado, avisamos al servidor
+        stage.setOnCloseRequest(e -> controller.onDisconnect());
         stage.show();
-    }
-
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
     }
 
     public static void main(String[] args) {

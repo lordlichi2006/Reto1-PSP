@@ -4,4 +4,6 @@ module reto {
 
     opens reto.client to javafx.fxml;
     exports reto.client;
+    exports reto.model;
+    exports reto.server;
 }
